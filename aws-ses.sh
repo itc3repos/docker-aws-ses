@@ -17,7 +17,7 @@ done
 recipients=$(echo $recipients | sed 's/,$//')
 
 # To form a valid JSON string, join multiple lines into one line and replace all newlines (\n) with \\n; Double quotes with \\".
-body=$(echo "" >> /tmp/messages.txt && cat /tmp/message.txt | sed ':a;N;$!ba;s%\n%\\n%g;s%"%\\"%g')
+body=$(echo "" >> /tmp/messages.txt && cat /tmp/message.txt | sed ':a;N;$!ba;s%\n%\\n%g;s%\t% %g;s%"%\\"%g')
 cat > /tmp/message.json <<EOF
 {
   "Subject": {
